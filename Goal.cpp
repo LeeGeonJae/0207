@@ -7,6 +7,12 @@ Goal::Goal()
 	Shape = 'G';
 }
 
+Goal::Goal(int NewX, int NewY)
+{
+	SetActorLocation(NewX, NewY);
+	Shape = 'G';
+}
+
 Goal::~Goal()
 {
 }

@@ -7,6 +7,14 @@ Floor::Floor()
 	Shape = ' ';
 }
 
+Floor::Floor(int NewX, int NewY)
+{
+	X = 0;
+	Y = 0;
+	Shape = ' ';
+
+}
+
 Floor::~Floor()
 {
 }

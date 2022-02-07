@@ -14,9 +14,11 @@ public:
 	void Render();
 	void Input();
 	void BeginPlay();
+	
+	const std::vector<class Actor*>& GetActorList() { return ActorList; }
+
 
 protected:
 	std::vector<class Actor*> ActorList;
 
 };
-
