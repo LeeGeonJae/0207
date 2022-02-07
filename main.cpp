@@ -123,7 +123,7 @@ int main()
 	PlayEngine->LoadLevel("Level02.map");
 	PlayEngine->SaveLevel("Level03.map");
 
-	//	PlayEngine->Run();
+		PlayEngine->Run();
 
 	delete PlayEngine;
 	PlayEngine = nullptr;
