@@ -2,7 +2,6 @@
 #include "MyEngine.h"
 #include "SDL.h"
 
-
 #pragma comment(lib, "SDL2main.lib")
 #pragma comment(lib, "SDL2.lib")
 
@@ -16,7 +15,6 @@ int SDL_main(int argc, char* argv[])
 
 	delete PlayEngine;
 	PlayEngine = nullptr;
-
 
 	//bool bIsRunning = true;
 
