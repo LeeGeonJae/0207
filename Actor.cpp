@@ -19,14 +19,13 @@ Actor::~Actor()
 {
 }
 
-void Actor::Tick()
+void Actor::Tick(SDL_Event& MyEvent)
 {
 }
 
 void Actor::Render(SDL_Renderer* MyRenderer)
 {
 	//Util::GotoXY(GetX(), GetY());
-
 	//std::cout << GetShape() << std::endl;
 
 	SDL_SetRenderDrawColor(MyRenderer, Color.r, Color.g, Color.b, Color.a);

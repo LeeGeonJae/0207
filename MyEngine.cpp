@@ -60,7 +60,7 @@ void MyEngine::Run()
 	while (bIsRunning)
 	{
 		Input();
-		Tick();
+		Tick(MyEvent);
 		Render();
 	}
 }
@@ -173,7 +173,7 @@ void MyEngine::BeginPlay()
 	CurrentWorld->BeginPlay();
 }
 
-void MyEngine::Tick()
+void MyEngine::Tick(SDL_Event& MyEvent)
 {
 	//엔진에서 기본 처리 하는 이벤트
 	switch (MyEvent.type)
@@ -192,7 +192,7 @@ void MyEngine::Tick()
 	}
 
 
-	CurrentWorld->Tick();
+	CurrentWorld->Tick(MyEvent);
 }
 
 void MyEngine::Render()
@@ -214,6 +214,4 @@ void MyEngine::Input()
 {
 	//Input
 	SDL_PollEvent(&MyEvent);
-
-	CurrentWorld->Input();
 }

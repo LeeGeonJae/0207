@@ -26,7 +26,7 @@ public:
 
 protected:
 	void BeginPlay();
-	void Tick();
+	void Tick(SDL_Event& MyEvent);
 	void Render();
 	void Input();
 
