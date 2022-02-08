@@ -12,11 +12,11 @@ using namespace std;
 int SDL_main(int argc, char* argv[])
 {
 
-	//if ( SDL_Init(SDL_INIT_VIDEO) < 0 );
-	//{
-	//	cout << "SDL_Init Error :" << SDL_GetError() << endl;
-	//	return -1;
-	//}
+	if (SDL_Init(SDL_INIT_VIDEO) < 0)
+	{
+		cout << "SDL_Init Error :" << SDL_GetError() << endl;
+		return -1;
+	}
 
 	SDL_Window* MyWindow = SDL_CreateWindow("First SDL Example", 100, 100, 800, 600, SDL_WINDOW_OPENGL);
 
