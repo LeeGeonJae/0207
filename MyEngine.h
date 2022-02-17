@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "SDL.h"
+#include <memory>
 
 class World;
 
@@ -18,23 +19,27 @@ public:
 
 	void Stop();
 
-	void SpawnActor(class Actor* NewActor);
-	void DestroyActor(class Actor* DestroyActor);
+	void SpawnActor(std::shared_ptr<class Actor> NewActor);
+	void DestroyActor(std::shared_ptr<class Actor> DestroyActor);
 
 	void LoadLevel(std::string LoadMapName);
 	void SaveLevel(std::string SaveMapName);
 
+	inline static SDL_Window* GetWindow() { return MyWindow; }
+	inline static SDL_Renderer* GetRenderer() { return MyRenderer; }
+	inline static SDL_Event& GetEvent() { return MyEvent; }
+
 protected:
 	void BeginPlay();
-	void Tick(SDL_Event& MyEvent);
+	void Tick();
 	void Render();
 	void Input();
 
 protected:
 	bool bIsRunning = true;
-	World* CurrentWorld;
+	std::unique_ptr<World> CurrentWorld;
 
-	SDL_Window* MyWindow;
-	SDL_Renderer* MyRenderer;
-	SDL_Event MyEvent;
+	static SDL_Window* MyWindow;
+	static SDL_Renderer* MyRenderer;
+	static SDL_Event MyEvent;
 };

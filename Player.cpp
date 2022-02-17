@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "MyEngine.h"
 
 Player::Player()
 {
@@ -13,7 +14,8 @@ Player::Player()
 
 Player::Player(int NewX, int NewY)
 {
-	SetActorLocation(NewX, NewY);
+	X = NewX;
+	Y = NewY;
 	Shape = 'P';
 	Color.r = 0xff;
 	Color.g = 0x00;
@@ -25,12 +27,11 @@ Player::~Player()
 {
 }
 
-void Player::Tick(SDL_Event& MyEvent)
+void Player::Tick()
 {
-	if (MyEvent.type == SDL_KEYDOWN)
+	if (MyEngine::GetEvent().type == SDL_KEYDOWN)
 	{
-
-		switch (MyEvent.key.keysym.sym)
+		switch (MyEngine::GetEvent().key.keysym.sym)
 		{
 		case SDLK_LEFT:
 			X--;
@@ -45,6 +46,5 @@ void Player::Tick(SDL_Event& MyEvent)
 			Y++;
 			break;
 		}
-
 	}
 }
