@@ -45,6 +45,9 @@ protected:
 
 	int ZOrder;
 
+	int LastTick;
+	int DeltaSeconds;
+
 public:
 	bool bIsBlock;
 };

@@ -64,23 +64,23 @@ int SDL_main(int argc, char* argv[])
 	//	cout << Object.Number << endl;
 	//}
 
-	//BigO
+	////BigO
 	//int a[10] = { 9,4,1, 2 ,6,5,7,8,0,3 };
 
 	//sort(a, a+10 , compare);
 
-	////for (int i = 0; i < 10; ++i)
-	////{
-	////	for (int j = 0; j < 10; ++j)
-	////	{
-	////		if (a[i] < a[j])
-	////		{
-	////			int temp = a[i];
-	////			a[i] = a[j];
-	////			a[j] = temp;
-	////		}
-	////	}
-	////}
+	//for (int i = 0; i < 10; ++i)
+	//{
+	//	for (int j = 0; j < 10; ++j)
+	//	{
+	//		if (a[i] < a[j])
+	//		{
+	//			int temp = a[i];
+	//			a[i] = a[j];
+	//			a[j] = temp;
+	//		}
+	//	}
+	//}
 
 	//for (int i = 0; i < 10; ++i)
 	//{
