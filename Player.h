@@ -10,4 +10,5 @@ public:
 	virtual ~Player();
 
 	virtual void Tick() override;
+
 };
