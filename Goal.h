@@ -7,5 +7,10 @@ public:
 	Goal();
 	Goal(int NewX, int NewY);
 	virtual ~Goal();
+
+	virtual void Render() override;
+
+	SDL_Surface* Surface;
+	SDL_Texture* Texture;
 };
 

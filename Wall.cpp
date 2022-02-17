@@ -1,5 +1,7 @@
 #include "Wall.h"
 #include "SDL.h"
+#include "MyEngine.h"
+#include "World.h"
 
 Wall::Wall()
 {
@@ -24,6 +26,13 @@ Wall::Wall(int NewX, int NewY)
 	Color.a = 0xff;
 	ZOrder = 1;
 	bIsBlock = true;
+
+	//RAM
+	Surface = SDL_LoadBMP("Data/wall.bmp");
+	//GPU VRAM
+	Texture = SDL_CreateTextureFromSurface(MyEngine::GetRenderer(),
+		Surface);
+
 }
 
 Wall::~Wall()
@@ -32,5 +41,8 @@ Wall::~Wall()
 
 void Wall::Render()
 {
-	Actor::Render();
+	SDL_Rect SrcRect = { 0, 0, Surface->w, Surface->h };
+	SDL_Rect DestRect = { GetX() * TileSize, GetY() * TileSize, TileSize, TileSize };
+
+	SDL_RenderCopy(MyEngine::GetRenderer(), Texture, &SrcRect, &DestRect);
 }
