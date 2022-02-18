@@ -9,10 +9,14 @@ public:
 	Actor();
 	Actor(int NewX, int NewY);
 
+	virtual void Init(int NewX, int NewY);
+
 
 	virtual ~Actor();
 
-	virtual void Tick();
+	//순수 가상함수, 자식 클래스에서 무조건 재정의 해야 함
+	//인터페이스를 강제 하기 위해서 사용을 합니다.
+	virtual void Tick() = 0; 
 	virtual void Render();
 	virtual void BeginPlay();
 
@@ -35,18 +39,22 @@ public:
 	bool CanMove(int FutureX, int FutureY);
 
 
+	void LoadBMP(std::string ImageName);
+
 
 protected:
 	int X;
 	int Y;
 	char Shape;
 	SDL_Color Color;
-	int TileSize = 30;
+	SDL_Color ColorKey;
+	int TileSize = 64;
 
 	int ZOrder;
 
-	int LastTick;
-	int DeltaSeconds;
+	SDL_Surface* Surface;
+	SDL_Texture* Texture;
+
 
 public:
 	bool bIsBlock;

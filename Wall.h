@@ -5,12 +5,11 @@ class Wall : public Actor
 {
 public:
 	Wall();
-	Wall(int NewX, int NewY);
+	Wall(int NewX, int NewY, std::string ImageName);
 	virtual ~Wall();
+	virtual void Init(int NewX, int NewY) override;
+	virtual void Tick() override { }
+
 
 	virtual void Render() override;
-
-	SDL_Surface* Surface;
-	SDL_Texture* Texture;
-
 };

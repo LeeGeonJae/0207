@@ -1,45 +1,27 @@
 #include "Floor.h"
-#include "MyEngine.h"
-#include "World.h"
 
 Floor::Floor()
 {
-	X = 0;
-	Y = 0;
-	Shape = ' ';
-	Color.r = 0xE6;
-	Color.g = 0xE6;
-	Color.b = 0xE6;
-	Color.a = 0xff;
-	ZOrder = 0;
+	Init(0, 0);
 }
 
-Floor::Floor(int NewX, int NewY)
+Floor::Floor(int NewX, int NewY, std::string ImageName)
 {
-	X = NewX;
-	Y = NewY;
-	Shape = ' ';
-	Color.r = 0xE6;
-	Color.g = 0xE6;
-	Color.b = 0xE6;
-	Color.a = 0xff;
-	ZOrder = 0;
-
-	//RAM
-	Surface = SDL_LoadBMP("Data/floor.bmp");
-	//GPU VRAM
-	Texture = SDL_CreateTextureFromSurface(MyEngine::GetRenderer(),
-		Surface);
+	Init(NewX, NewY);
+	LoadBMP(ImageName);
 }
 
 Floor::~Floor()
 {
 }
 
-void Floor ::Render()
+void Floor::Init(int NewX, int NewY)
 {
-	SDL_Rect SrcRect = { 0, 0, Surface->w, Surface->h };
-	SDL_Rect DestRect = { GetX() * TileSize, GetY() * TileSize, TileSize, TileSize };
-
-	SDL_RenderCopy(MyEngine::GetRenderer(), Texture, &SrcRect, &DestRect);
+	Actor::Init(NewX, NewY);
+	Shape = ' ';
+	Color.r = 0xE6;
+	Color.g = 0xE6;
+	Color.b = 0xE6;
+	Color.a = 0xff;
+	ZOrder = 0;
 }
